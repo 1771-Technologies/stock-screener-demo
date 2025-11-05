@@ -59,7 +59,7 @@ export function GroupPills({
                 isActive && "opacity-100 hover:opacity-100"
               )}
             >
-              <div className="flex items-center text-nowrap bg-ln-pill-group-fill border border-ln-pill-group-stroke rounded h-[28px] pl-1 group-focus-visible:ring-1 group-focus-visible:ring-ln-primary-50 cursor-pointer">
+              <div className="flex items-center text-nowrap bg-ln-pill-group-fill border border-ln-pill-group-stroke rounded h-7 pl-1 group-focus-visible:ring-1 group-focus-visible:ring-ln-primary-50 cursor-pointer">
                 {isActive && <DragDotsSmallIcon className="no-drag" />}
                 <div className={tw("text-xs pr-3 pl-1", !isActive && "pr-2")}>
                   {c.label}

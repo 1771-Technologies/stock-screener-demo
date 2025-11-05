@@ -1,23 +1,3 @@
-// import type { Column, ColumnBase } from "@1771technologies/lytenyte-pro/types";
-// import { measureText } from "@1771technologies/lytenyte-pro";
-// import { HeaderRenderer } from "./components/header-renderer";
-// import {
-//   FloatingCellNumber,
-//   FloatingCellText,
-// } from "./components/floating/floating-celll";
-// import { AnalystRatingCell } from "./components/cells/analyst-rating-cell";
-// import { CompactCurrencyCell } from "./components/cells/compact-currency-cell";
-// import { SymbolCell } from "./components/cells/symbol-cell";
-// import { ExchangeCells } from "./components/cells/exchange-cell";
-// import { CurrencyCell } from "./components/cells/currency-cell";
-// import { PercentCell } from "./components/cells/percent-cell";
-// import {
-//   CompactNumberCell,
-//   formatCompactNumber,
-// } from "./components/cells/compact-number-cell";
-// import { DecimalCell } from "./components/cells/decimal-cell";
-// import { BaseCell } from "./components/cells/base-cell";
-
 import type { Column, ColumnBase } from "@1771technologies/lytenyte-pro/types";
 import { AnalystRatingCell } from "./cells/analyst-rating-cell";
 import { measureText } from "@1771technologies/lytenyte-pro";
@@ -31,6 +11,7 @@ import { CompactNumberCell } from "./cells/compact-number-cell";
 import { DecimalCell } from "./cells/decimal-cell";
 import { BaseCell } from "./cells/base-cell";
 import { HeaderRenderer } from "./header/header-renderer";
+import { FloatingCellNumber, FloatingCellText } from "./floating-cell";
 
 const formatter = new Intl.NumberFormat("en-US", {
   minimumFractionDigits: 2,
@@ -39,7 +20,7 @@ const formatter = new Intl.NumberFormat("en-US", {
 
 export const base: ColumnBase<(string | number | null)[]> = {
   headerRenderer: HeaderRenderer,
-  //   floatingCellRenderer: FloatingCellNumber,
+  floatingCellRenderer: FloatingCellNumber,
   autosizeHeaderFn: (c) => {
     const hasGroups = c.grid.state.rowGroupModel.get().length > 0;
     const agg = (c.grid.state.aggModel.get()?.[c.column.id]?.fn ??
@@ -68,7 +49,7 @@ export const columns: Column<(string | number | null)[]>[] = [
   {
     id: "symbol",
     name: "Symbol",
-    //   floatingCellRenderer: FloatingCellText,
+    floatingCellRenderer: FloatingCellText,
     cellRenderer: SymbolCell,
     field: (c) => {
       if (c.data.kind === "branch") {
@@ -109,7 +90,7 @@ export const columns: Column<(string | number | null)[]>[] = [
   {
     id: "exchange",
     name: "Exchange",
-    //   floatingCellRenderer: FloatingCellText,
+    floatingCellRenderer: FloatingCellText,
     cellRenderer: ExchangeCells,
     field: 15,
     width: 150,
@@ -172,7 +153,7 @@ export const columns: Column<(string | number | null)[]>[] = [
   {
     id: "analyst rating",
     name: "Analyst Rating",
-    //   floatingCellRenderer: FloatingCellText,
+    floatingCellRenderer: FloatingCellText,
     cellRenderer: AnalystRatingCell,
     field: 2,
     uiHints: {
@@ -326,7 +307,7 @@ export const columns: Column<(string | number | null)[]>[] = [
   {
     id: "industry",
     name: "Industry",
-    // floatingCellRenderer: FloatingCellText,
+    floatingCellRenderer: FloatingCellText,
     cellRenderer: BaseCell,
     field: 17,
     width: 250,
@@ -339,7 +320,7 @@ export const columns: Column<(string | number | null)[]>[] = [
   {
     id: "sector",
     name: "Sector",
-    // floatingCellRenderer: FloatingCellText,
+    floatingCellRenderer: FloatingCellText,
     cellRenderer: BaseCell,
     field: 16,
     width: 180,
