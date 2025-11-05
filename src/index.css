@@ -6,6 +6,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --checkmark: white;
 }
 
 * {
@@ -17,6 +19,7 @@
 .lng1771-teal,
 .lng1771-term256 {
   color-scheme: dark;
+  --checkmark: black;
 }
 
 /* Shadcn theme */

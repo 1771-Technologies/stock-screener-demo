@@ -2,6 +2,7 @@ import type { HeaderCellRendererParams } from "@1771technologies/lytenyte-pro/ty
 import clsx from "clsx";
 import { SortSwitcher } from "./sort-switcher";
 import { tw } from "../lib/tw";
+import { ColumnMenu } from "../column-menu";
 
 export function HeaderRenderer({
   column,
@@ -31,7 +32,7 @@ export function HeaderRenderer({
         </div>
       )}
       <SortSwitcher grid={grid} column={column} />
-      {/* <ColumnMenu grid={grid} column={column} /> */}
+      <ColumnMenu grid={grid} column={column} />
     </div>
   );
 }

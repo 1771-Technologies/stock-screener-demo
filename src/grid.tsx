@@ -3,6 +3,11 @@ import { stockData } from "./data";
 import { memo, useId } from "react";
 import type { RowLayout } from "@1771technologies/lytenyte-pro/types";
 import { base, columns } from "./columns";
+import { ColumnManagerDialog } from "./column-manager/column-manager-dialog";
+import { GridFrame } from "./grid-frame";
+import { SortManager } from "./sort-manager";
+import { GridCheckbox } from "./ui/grid-checkbox";
+import { Marker } from "./cells/marker";
 
 const formatter = new Intl.NumberFormat("en-US", {
   minimumFractionDigits: 2,
@@ -15,7 +20,7 @@ const data = stockData.map((c) => {
   );
 });
 
-export function StockGrid() {
+export function StockGrid({ onReset }: { onReset: () => void }) {
   const ds = useClientRowDataSource({
     data: data,
     transformInFilterItem({ column, values }) {
@@ -55,21 +60,21 @@ export function StockGrid() {
 
     columnMarkerEnabled: true,
     columnMarker: {
-      //   cellRenderer: Marker,
+      cellRenderer: Marker,
       headerRenderer: ({ grid }) => {
         const allSelected = ds.rowAreAllSelected();
         grid.state.rowSelectedIds.useValue();
 
         return (
           <div className="flex items-center justify-center w-full h-full">
-            {/* <GridCheckbox
+            <GridCheckbox
               onClick={() =>
                 grid.api.rowSelectAll({
                   deselect: allSelected,
                 })
               }
               checked={allSelected}
-            /> */}
+            />
           </div>
         );
       },
@@ -98,18 +103,18 @@ export function StockGrid() {
       sector: { fn: "count" },
     },
 
-    // dialogFrames: {
-    //   "column-manager": {
-    //     component: ({ grid }) => {
-    //       return <ColumnManagerDialog grid={grid} />;
-    //     },
-    //   },
-    //   "sort-manager": {
-    //     component: ({ grid }) => {
-    //       return <SortManager grid={grid} />;
-    //     },
-    //   },
-    // },
+    dialogFrames: {
+      "column-manager": {
+        component: ({ grid }) => {
+          return <ColumnManagerDialog grid={grid} />;
+        },
+      },
+      "sort-manager": {
+        component: ({ grid }) => {
+          return <SortManager grid={grid} />;
+        },
+      },
+    },
 
     // rowGroupColumn: {
     //   pin: "start",
@@ -134,44 +139,49 @@ export function StockGrid() {
 
   const view = grid.view.useValue();
   return (
-    <Grid.Root grid={grid}>
-      <Grid.Viewport className="focus:outline-none focus-visible:border-ln-primary-50 border border-transparent">
-        <Grid.Header>
-          {view.header.layout.map((row, i) => {
-            return (
-              <Grid.HeaderRow headerRowIndex={i} key={i}>
-                {row.map((c) => {
-                  if (c.kind === "group") {
+    <GridFrame grid={grid} onReset={onReset}>
+      <Grid.Root grid={grid}>
+        <Grid.Viewport
+          className="focus:outline-none focus-visible:border-ln-primary-50 border border-transparent"
+          id="stocks-grid"
+        >
+          <Grid.Header>
+            {view.header.layout.map((row, i) => {
+              return (
+                <Grid.HeaderRow headerRowIndex={i} key={i}>
+                  {row.map((c) => {
+                    if (c.kind === "group") {
+                      return (
+                        <Grid.HeaderGroupCell cell={c} key={c.idOccurrence} />
+                      );
+                    }
                     return (
-                      <Grid.HeaderGroupCell cell={c} key={c.idOccurrence} />
+                      <Grid.HeaderCell
+                        resizerClassName="hidden md:flex"
+                        resizerStyle={{ width: 4 }}
+                        cell={c}
+                        key={c.id}
+                      />
                     );
-                  }
-                  return (
-                    <Grid.HeaderCell
-                      resizerClassName="hidden md:flex"
-                      resizerStyle={{ width: 4 }}
-                      cell={c}
-                      key={c.id}
-                    />
-                  );
-                })}
-              </Grid.HeaderRow>
-            );
-          })}
-        </Grid.Header>
-        <Grid.RowsContainer>
-          <Grid.RowsTop>
-            <RowHandler rows={view.rows.top} />
-          </Grid.RowsTop>
-          <Grid.RowsCenter>
-            <RowHandler rows={view.rows.center} />
-          </Grid.RowsCenter>
-          <Grid.RowsBottom>
-            <RowHandler rows={view.rows.bottom} />
-          </Grid.RowsBottom>
-        </Grid.RowsContainer>
-      </Grid.Viewport>
-    </Grid.Root>
+                  })}
+                </Grid.HeaderRow>
+              );
+            })}
+          </Grid.Header>
+          <Grid.RowsContainer>
+            <Grid.RowsTop>
+              <RowHandler rows={view.rows.top} />
+            </Grid.RowsTop>
+            <Grid.RowsCenter>
+              <RowHandler rows={view.rows.center} />
+            </Grid.RowsCenter>
+            <Grid.RowsBottom>
+              <RowHandler rows={view.rows.bottom} />
+            </Grid.RowsBottom>
+          </Grid.RowsContainer>
+        </Grid.Viewport>
+      </Grid.Root>
+    </GridFrame>
   );
 }
 const RowHandler = memo(

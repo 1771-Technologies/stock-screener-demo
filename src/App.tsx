@@ -1,12 +1,14 @@
+import { useState } from "react";
 import { StockGrid } from "./grid";
-import { GridFrame } from "./grid-frame";
 
 function App() {
+  const [resetKey, setResetKey] = useState(1);
   return (
     <div className="w-screen h-screen flex items-center justify-center">
-      <GridFrame>
-        <StockGrid />
-      </GridFrame>
+      <StockGrid
+        key={resetKey}
+        onReset={() => setResetKey((prev) => prev + 1)}
+      />
     </div>
   );
 }
