@@ -11,6 +11,8 @@ import { GridIconButton } from "./ui/icon-button";
 import { QuickSearchInput } from "./quck-search-input";
 import { Panel } from "./panel";
 import { ExportMenu } from "./export-menu";
+import { ColumnPills } from "./pill-manger/column-pills";
+import { GroupPills } from "./pill-manger/group-pills";
 
 export function GridFrame({
   grid,
@@ -57,6 +59,8 @@ export function GridFrame({
 
           <ExportMenu grid={grid} />
         </div>
+        <ColumnPills grid={grid} />
+        <GroupPills grid={grid} />
         <div
           id="stocks-grid"
           className="flex flex-1 border-t border-ln-gray-20"
