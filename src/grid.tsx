@@ -1,13 +1,23 @@
-import { Grid, useClientRowDataSource } from "@1771technologies/lytenyte-pro";
+import {
+  Grid,
+  measureText,
+  useClientRowDataSource,
+} from "@1771technologies/lytenyte-pro";
 import { stockData } from "./data";
-import { memo, useId } from "react";
-import type { RowLayout } from "@1771technologies/lytenyte-pro/types";
+import { memo, useId, useState } from "react";
+import type {
+  PositionUnion,
+  RowLayout,
+} from "@1771technologies/lytenyte-pro/types";
 import { base, columns } from "./columns";
 import { ColumnManagerDialog } from "./column-manager/column-manager-dialog";
 import { GridFrame } from "./grid-frame";
 import { SortManager } from "./sort-manager";
 import { GridCheckbox } from "./ui/grid-checkbox";
 import { Marker } from "./cells/marker";
+import { ContextMenu } from "radix-ui";
+import { GridContextMenu } from "./context-menu/grid-context-menu";
+import { GroupCellRenderer } from "./cells/group-cell-renderer";
 
 const formatter = new Intl.NumberFormat("en-US", {
   minimumFractionDigits: 2,
@@ -116,26 +126,28 @@ export function StockGrid({ onReset }: { onReset: () => void }) {
       },
     },
 
-    // rowGroupColumn: {
-    //   pin: "start",
-    //   cellRenderer: GroupCellRenderer,
+    rowGroupColumn: {
+      pin: "start",
+      cellRenderer: GroupCellRenderer,
 
-    //   floatingCellRenderer: () => <div />,
+      floatingCellRenderer: () => <div />,
 
-    //   autosizeCellFn: ({ grid, row }) => {
-    //     if (grid.api.rowIsLeaf(row)) return null;
+      autosizeCellFn: ({ grid, row }) => {
+        if (grid.api.rowIsLeaf(row)) return null;
 
-    //     const padding = row.depth * 16;
+        const padding = row.depth * 16;
 
-    //     const text = measureText(
-    //       row.key ?? "",
-    //       grid.state.viewport.get() ?? undefined
-    //     );
+        const text = measureText(
+          row.key ?? "",
+          grid.state.viewport.get() ?? undefined
+        );
 
-    //     return padding + text.width + 32 + 16;
-    //   },
-    // },
+        return padding + text.width + 32 + 16;
+      },
+    },
   });
+
+  const [position, setPosition] = useState<PositionUnion | null>(null);
 
   const view = grid.view.useValue();
   return (
@@ -168,17 +180,33 @@ export function StockGrid({ onReset }: { onReset: () => void }) {
               );
             })}
           </Grid.Header>
-          <Grid.RowsContainer>
-            <Grid.RowsTop>
-              <RowHandler rows={view.rows.top} />
-            </Grid.RowsTop>
-            <Grid.RowsCenter>
-              <RowHandler rows={view.rows.center} />
-            </Grid.RowsCenter>
-            <Grid.RowsBottom>
-              <RowHandler rows={view.rows.bottom} />
-            </Grid.RowsBottom>
-          </Grid.RowsContainer>
+          <ContextMenu.Root
+            modal
+            onOpenChange={(b) => {
+              if (!b) setPosition(null);
+            }}
+          >
+            <ContextMenu.Trigger
+              asChild
+              onContextMenu={(c) => {
+                const element = c.target as HTMLElement;
+                setPosition(grid.api.positionFromElement(element));
+              }}
+            >
+              <Grid.RowsContainer>
+                <Grid.RowsTop>
+                  <RowHandler rows={view.rows.top} />
+                </Grid.RowsTop>
+                <Grid.RowsCenter>
+                  <RowHandler rows={view.rows.center} />
+                </Grid.RowsCenter>
+                <Grid.RowsBottom>
+                  <RowHandler rows={view.rows.bottom} />
+                </Grid.RowsBottom>
+              </Grid.RowsContainer>
+            </ContextMenu.Trigger>
+            <GridContextMenu grid={grid} position={position} />
+          </ContextMenu.Root>
         </Grid.Viewport>
       </Grid.Root>
     </GridFrame>
