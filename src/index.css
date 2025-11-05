@@ -20,6 +20,7 @@
 .lng1771-term256 {
   color-scheme: dark;
   --checkmark: black;
+  --logo-fill: white;
 }
 
 /* Shadcn theme */

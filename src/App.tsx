@@ -4,7 +4,7 @@ import { StockGrid } from "./grid";
 function App() {
   const [resetKey, setResetKey] = useState(1);
   return (
-    <div className="w-screen h-screen flex items-center justify-center">
+    <div className="flex justify-center flex-1">
       <StockGrid
         key={resetKey}
         onReset={() => setResetKey((prev) => prev + 1)}
