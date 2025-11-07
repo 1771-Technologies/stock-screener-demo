@@ -2,46 +2,44 @@
 
 # LyteNyte Grid Stock Screener Demo
 
-This demo shows how to build a stock screener using LyteNyte Grid.
-It’s a fork of the code used to create the Stock Screener demo
-on the [1771 Technologies website](https://www.1771technologies.com/demo).
+This demo shows how to build a stock screener using LyteNyte Grid. It’s a fork of the code
+used to create the stock screener demo on the [1771 Technologies website](https://www.1771technologies.com/demo).
 
-The demo highlights the flexibility of LyteNyte Grid and some of its key capabilities. As
-a quick overview, the demo shows:
+The demo highlights the flexibility of LyteNyte Grid and some of its key capabilities.
 
-- Sorting rows. This can be performed by clicking on the arrow icons in the header of a column,
-  or via the [Sort Manager](https://www.1771technologies.com/docs/component-sort-manager) dialog.
-  It is also possible to add multiple sorts at the same time.
-- Filtering functionality. The demo manages filtering through a floating row positioned below the header
-  row. Quick filter expressions are supported, and users may additionally expand a filter configuration popover
-  for given columns. The filter popover displays the usage of
-  the [Filter Tree](https://www.1771technologies.com/docs/component-filter-tree) functionality available in LyteNyte Grid.
-- Quick searching via a text input. The demo demonstrates LyteNyte Grid's [Quick Search](https://www.1771technologies.com/docs/filter-quick-filter)
-  functionality and how it allows users to effortlessly find the data they are looking for.
-- Row grouping and aggregations are enabled through the grid's [Pill Manager](https://www.1771technologies.com/docs/component-grid-box) support or via
-  the provided [Column Manager](https://www.1771technologies.com/docs/component-column-manager) components. The demo further illustrates the flexibility
-  in design by placing the Column Manager in a side panel and in a dialog.
-- Columns may be [resized and moved](https://www.1771technologies.com/docs/column-moving). Furthermore, the [autosizing](https://www.1771technologies.com/docs/column-autosizing)
-  functionality for all the columns has been provided.
+## Overview
 
-In addition to the above functionality, many other features are illustrated, such as custom cell
-renders, copy and paste functionality, cell range selection, row selection, and context menus.
-This list isn’t exhaustive. Explore the code to inspire your
-own implementations and use cases.
+The stock screener demo highlights these key LyteNyte Grid features:
 
-The stock screener demo does not cover all the features that LyteNyte Grid is capable of. Some other
-widely used functionality that is missing but may be of interest includes:
+- Sorting Rows: Click the arrow icons in a column header or open the [Sort Manager](https://www.1771technologies.com/docs/component-sort-manager)
+  dialog to sort rows. You can apply multiple sorts simultaneously
+- Filtering: The demo manages filtering through a floating row positioned below the header row. Quick filter expressions
+  are supported, and users may also expand a filter configuration popover for given columns. The filter
+  popover demonstrates LyteNyte Grid’s [Filter Tree](https://www.1771technologies.com/docs/component-filter-tree) feature.
+- Quick Search: Enter text into the input field to instantly locate matching rows in the grid
+  using LyteNyte Grid’s [Quick Search](https://www.1771technologies.com/docs/filter-quick-filter) feature.
+- Row Grouping and Aggregations: Use the [Pill Manager](https://www.1771technologies.com/docs/component-grid-box) or the
+  [Column Manager](https://www.1771technologies.com/docs/component-column-manager) to group rows and calculate aggregations.
+  The demo shows the Column Manager in both a side panel and a dialog to highlight flexible layout options.
+- Column Resizing and Autosizing: You can [resize and move](https://www.1771technologies.com/docs/column-moving) columns.
+  [Autosize](https://www.1771technologies.com/docs/column-autosizing) all columns to fit their content with a single action.
 
-- [Column Pivoting](https://www.1771technologies.com/docs/column-pivoting)
-- [Server Data Loading](https://www.1771technologies.com/docs/server-data-loading-overview)
-- [Tree Data](https://www.1771technologies.com/docs/row-tree-data-source)
-- [Full Width Rows](https://www.1771technologies.com/docs/row-full-width)
-- [Cell Editing](https://www.1771technologies.com/docs/cell-editing)
-- [Row Dragging](https://www.1771technologies.com/docs/row-dragging)
+Additional demo features include custom cell renderers, copy and paste, cell range selection, row selection,
+and context menus. This list isn’t exhaustive. Explore the code to inspire your own implementations and use cases.
 
-Visit our [website](https://www.1771technologies.com/) for more information about LyteNyte Grid.
+> [!Note]
+> The stock screener demo doesn’t cover every LyteNyte Grid feature. Other commonly used features not shown include:
+>
+> - [Column Pivoting](https://www.1771technologies.com/docs/column-pivoting)
+> - [Server Data Loading](https://www.1771technologies.com/docs/server-data-loading-overview)
+> - [Tree Data](https://www.1771technologies.com/docs/row-tree-data-source)
+> - [Full Width Rows](https://www.1771technologies.com/docs/row-full-width)
+> - [Cell Editing](https://www.1771technologies.com/docs/cell-editing)
+> - [Row Dragging](https://www.1771technologies.com/docs/row-dragging)
 
-## Setup
+For details on all LyteNyte Grid features, see the [documentation](https://www.1771technologies.com/docs/intro-getting-started).
+
+## 🚀 Getting Started
 
 The project uses [Vite](https://vite.dev/) for bundling and development. Vite isn’t required but is
 our preferred choice. LyteNyte Grid works with Next.js, React Router,
@@ -60,9 +58,8 @@ pnpm i
 pnpm run dev
 ```
 
-This starts a development server using the standard Vite toolchain.
-The dev build runs React in development mode, which is slower than a
-production build. To see optimal performance, create a production build:
+This starts a development server using the standard Vite toolchain. The dev build runs React in development mode,
+which is slower than a production build. To test performance, create a production build:
 
 ```sh
 pnpm run build
