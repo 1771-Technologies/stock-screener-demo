@@ -11,17 +11,17 @@ The demo highlights the flexibility of LyteNyte Grid and some of its key capabil
 
 The stock screener demo highlights these key LyteNyte Grid features:
 
-- Sorting Rows: Click the arrow icons in a column header or open the [Sort Manager](https://www.1771technologies.com/docs/component-sort-manager)
-  dialog to sort rows. You can apply multiple sorts simultaneously
-- Filtering: The demo manages filtering through a floating row positioned below the header row. Quick filter expressions
+- **Sorting Rows:** Click the arrow icons in a column header or open the [Sort Manager](https://www.1771technologies.com/docs/component-sort-manager)
+  dialog to sort rows. You can apply multiple sorts simultaneously.
+- **Filtering:** The demo manages filtering through a floating row positioned below the header row. Quick filter expressions
   are supported, and users may also expand a filter configuration popover for given columns. The filter
   popover demonstrates LyteNyte Grid’s [Filter Tree](https://www.1771technologies.com/docs/component-filter-tree) feature.
-- Quick Search: Enter text into the input field to instantly locate matching rows in the grid
+- **Quick Search:** Enter text into the input field to instantly locate matching rows in the grid
   using LyteNyte Grid’s [Quick Search](https://www.1771technologies.com/docs/filter-quick-filter) feature.
-- Row Grouping and Aggregations: Use the [Pill Manager](https://www.1771technologies.com/docs/component-grid-box) or the
+- **Row Grouping and Aggregations:** Use the [Pill Manager](https://www.1771technologies.com/docs/component-grid-box) or the
   [Column Manager](https://www.1771technologies.com/docs/component-column-manager) to group rows and calculate aggregations.
   The demo shows the Column Manager in both a side panel and a dialog to highlight flexible layout options.
-- Column Resizing and Autosizing: You can [resize and move](https://www.1771technologies.com/docs/column-moving) columns.
+- **Column Resizing and Autosizing:** You can [resize and move](https://www.1771technologies.com/docs/column-moving) columns.
   [Autosize](https://www.1771technologies.com/docs/column-autosizing) all columns to fit their content with a single action.
 
 Additional demo features include custom cell renderers, copy and paste, cell range selection, row selection,
@@ -41,8 +41,8 @@ For details on all LyteNyte Grid features, see the [documentation](https://www.1
 
 ## 🚀 Getting Started
 
-The project uses [Vite](https://vite.dev/) for bundling and development. Vite isn’t required but is
-our preferred choice. LyteNyte Grid works with Next.js, React Router,
+The project uses [Vite](https://vite.dev/) for bundling and development.
+Vite isn’t required but is our preferred choice. LyteNyte Grid works with Next.js, React Router,
 TanStack Start, or any ESM-compatible framework.
 
 To get started, clone the repository:
