@@ -1,0 +1,17 @@
+@keyframes flash {
+  0% {
+    background-color: var(--ln-primary-10);
+  }
+  50% {
+    background-color: var(--ln-primary-30);
+  }
+  100% {
+    background-color: var(--ln-primary-10);
+  }
+}
+
+.copy-flash {
+  & [data-ln-cell-selection-rect="true"] {
+    animation: flash 0.5s ease-out forwards;
+  }
+}
