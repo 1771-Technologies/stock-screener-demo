@@ -10,13 +10,13 @@ createRoot(document.getElementById("root")!).render(
     <ThemeProvider
       attribute="class"
       themes={[
-        "light",
-        "dark",
-        "lng1771-teal",
-        "lng1771-cotton-candy",
-        "lng1771-shadcn-light",
-        "lng1771-shadcn-dark",
-        "lng1771-term256",
+        "ln-light",
+        "ln-dark",
+        "ln-teal",
+        "ln-cotton-candy",
+        "ln-shadcn-light",
+        "ln-shadcn-dark",
+        "ln-term",
       ]}
     >
       <div className="w-screen h-screen flex flex-col gap-8">
@@ -24,5 +24,5 @@ createRoot(document.getElementById("root")!).render(
         <App />
       </div>
     </ThemeProvider>
-  </StrictMode>
+  </StrictMode>,
 );

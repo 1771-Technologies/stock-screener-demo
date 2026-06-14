@@ -1,14 +1,13 @@
-import { useState } from "react";
-import { StockGrid } from "./grid";
+import { Stocks } from "./stocks";
+import "lytenyte-pro/grid-full.css";
+import "lytenyte-pro/pill-manager.css";
+import "lytenyte-pro/components.css";
+import "./grid.css";
 
 function App() {
-  const [resetKey, setResetKey] = useState(1);
   return (
     <div className="flex justify-center flex-1">
-      <StockGrid
-        key={resetKey}
-        onReset={() => setResetKey((prev) => prev + 1)}
-      />
+      <Stocks></Stocks>
     </div>
   );
 }

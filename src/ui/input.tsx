@@ -7,6 +7,7 @@ export interface InputProps {
   readonly label?: string;
   readonly labelFor?: string;
   readonly startElement?: ReactNode;
+  readonly startElementClass?: string;
   readonly endElement?: ReactNode;
   readonly small?: boolean;
   readonly containerClassName?: string;
@@ -16,6 +17,7 @@ export function Input({
   label,
   labelFor,
   startElement,
+  startElementClass,
   endElement,
   small,
   containerClassName,
@@ -26,7 +28,7 @@ export function Input({
       <div
         className={tw(
           "transition-all border border-ln-gray-30 bg-ln-gray-02 flex items-center rounded-[10px] overflow-hidden h-9 focus-within:outline-brand focus-within:outline-1",
-          small && "h-8"
+          small && "h-8",
         )}
       >
         {label && (
@@ -35,7 +37,12 @@ export function Input({
           </label>
         )}
         {startElement && (
-          <div className="w-8 flex items-center justify-center text-gray-700">
+          <div
+            className={tw(
+              "w-8 flex items-center justify-center text-gray-700 h-full",
+              startElementClass,
+            )}
+          >
             {startElement}
           </div>
         )}
@@ -44,7 +51,7 @@ export function Input({
           placeholder={props.placeholder ?? props.name}
           className={tw(
             "placeholder:capitalize flex-1 focus:outline-none text-sm h-full",
-            props.className
+            props.className,
           )}
         />
         {endElement && (

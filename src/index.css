@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "@1771technologies/lytenyte-pro/grid.css";
 
 :root {
   font-synthesis: none;
@@ -14,10 +13,10 @@
   scrollbar-width: thin;
 }
 
-.dark,
-.lng1771-shadcn-dark,
-.lng1771-teal,
-.lng1771-term256 {
+.ln-dark,
+.ln-shadcn-dark,
+.ln-teal,
+.ln-term {
   color-scheme: dark;
   --checkmark: black;
   --logo-fill: white;
@@ -60,7 +59,7 @@
 }
 
 /* If you are using a shadcn app, use the classname lng1771-shadcn instead. */
-.lng1771-shadcn-dark {
+.ln-shadcn-dark {
   --color-background: oklch(0.145 0 0);
   --color-foreground: oklch(0.985 0 0);
   --color-card: oklch(0.205 0 0);
@@ -168,10 +167,10 @@
   --color-warn-50: hsla(55, 100%, 95%, 1);
 }
 
-.dark,
-.lng1771-teal,
-.lng1771-shadcn-dark,
-.lng1771-term256 {
+.ln-dark,
+.ln-teal,
+.ln-shadcn-dark,
+.ln-term {
   --color-gray-950: hsla(175, 25%, 98%, 1);
   --color-gray-900: hsla(175, 23%, 97%, 1);
   --color-gray-800: hsla(175, 20%, 95%, 1);
@@ -246,36 +245,36 @@
 }
 
 @theme {
-  --color-ln-gray-00: var(--lng1771-gray-00);
-  --color-ln-gray-02: var(--lng1771-gray-02);
-  --color-ln-gray-05: var(--lng1771-gray-05);
-  --color-ln-gray-10: var(--lng1771-gray-10);
-  --color-ln-gray-20: var(--lng1771-gray-20);
-  --color-ln-gray-30: var(--lng1771-gray-30);
-  --color-ln-gray-40: var(--lng1771-gray-40);
-  --color-ln-gray-50: var(--lng1771-gray-50);
-  --color-ln-gray-60: var(--lng1771-gray-60);
-  --color-ln-gray-70: var(--lng1771-gray-70);
-  --color-ln-gray-80: var(--lng1771-gray-80);
-  --color-ln-gray-90: var(--lng1771-gray-90);
-  --color-ln-gray-100: var(--lng1771-gray-100);
+  --color-ln-gray-00: var(--ln-gray-00);
+  --color-ln-gray-02: var(--ln-gray-02);
+  --color-ln-gray-05: var(--ln-gray-05);
+  --color-ln-gray-10: var(--ln-gray-10);
+  --color-ln-gray-20: var(--ln-gray-20);
+  --color-ln-gray-30: var(--ln-gray-30);
+  --color-ln-gray-40: var(--ln-gray-40);
+  --color-ln-gray-50: var(--ln-gray-50);
+  --color-ln-gray-60: var(--ln-gray-60);
+  --color-ln-gray-70: var(--ln-gray-70);
+  --color-ln-gray-80: var(--ln-gray-80);
+  --color-ln-gray-90: var(--ln-gray-90);
+  --color-ln-gray-100: var(--ln-gray-100);
 
-  --color-ln-primary-05: var(--lng1771-primary-05);
-  --color-ln-primary-10: var(--lng1771-primary-10);
-  --color-ln-primary-30: var(--lng1771-primary-30);
-  --color-ln-primary-50: var(--lng1771-primary-50);
-  --color-ln-primary-70: var(--lng1771-primary-70);
-  --color-ln-primary-90: var(--lng1771-primary-90);
-  --color-ln-focus-outline: var(--lng1771-focus-outline);
+  --color-ln-primary-05: var(--ln-primary-05);
+  --color-ln-primary-10: var(--ln-primary-10);
+  --color-ln-primary-30: var(--ln-primary-30);
+  --color-ln-primary-50: var(--ln-primary-50);
+  --color-ln-primary-70: var(--ln-primary-70);
+  --color-ln-primary-90: var(--ln-primary-90);
+  --color-ln-focus-outline: var(--ln-focus-outline);
 
-  --color-ln-pill-plain-fill: var(--lng1771-pill-plain-fill);
-  --color-ln-pill-column-fill: var(--lng1771-pill-column-fill);
-  --color-ln-pill-column-stroke: var(--lng1771-pill-column-stroke);
-  --color-ln-pill-pivot-fill: var(--lng1771-pill-pivot-fill);
-  --color-ln-pill-pivot-stroke: var(--lng1771-pill-pivot-stroke);
-  --color-ln-pill-group-fill: var(--lng1771-pill-group-fill);
-  --color-ln-pill-group-stroke: var(--lng1771-pill-group-stroke);
-  --color-ln-pill-icon-color: var(--lng1771-pill-icon-color);
+  --color-ln-pill-plain-fill: var(--ln-pill-plain-fill);
+  --color-ln-pill-column-fill: var(--ln-pill-column-fill);
+  --color-ln-pill-column-stroke: var(--ln-pill-column-stroke);
+  --color-ln-pill-pivot-fill: var(--ln-pill-pivot-fill);
+  --color-ln-pill-pivot-stroke: var(--ln-pill-pivot-stroke);
+  --color-ln-pill-group-fill: var(--ln-pill-group-fill);
+  --color-ln-pill-group-stroke: var(--ln-pill-group-stroke);
+  --color-ln-pill-icon-color: var(--ln-pill-icon-color);
 
   --animate-popover-in: popover-in 130ms ease;
   --animate-popover-out: popover-out 130ms ease;
@@ -375,7 +374,7 @@ body {
 .cell-copy {
   [data-ln-cell-selection-rect] {
     transition: background-color 200ms ease-in-out;
-    background-color: var(--lng1771-primary-10) !important;
+    background-color: var(--ln-primary-10) !important;
   }
 }
 
@@ -401,7 +400,7 @@ body {
         left: 0px;
         width: 100%;
         height: 2px;
-        background-color: var(--lng1771-primary-50);
+        background-color: var(--ln-primary-50);
       }
     }
     &[data-ln-is-after] {
@@ -412,7 +411,7 @@ body {
         left: 0px;
         width: 100%;
         height: 2px;
-        background-color: var(--lng1771-primary-50);
+        background-color: var(--ln-primary-50);
       }
     }
   }
@@ -428,7 +427,7 @@ body {
         height: calc(100% - 20px);
         top: 10px;
         width: 2px;
-        background-color: var(--lng1771-primary-50);
+        background-color: var(--ln-primary-50);
         left: 0px;
       }
     }
@@ -437,7 +436,7 @@ body {
         content: "";
         position: absolute;
         width: 2px;
-        background-color: var(--lng1771-primary-50);
+        background-color: var(--ln-primary-50);
         right: 0px;
         height: calc(100% - 20px);
         top: 10px;
