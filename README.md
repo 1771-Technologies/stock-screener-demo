@@ -9,15 +9,16 @@ The demo highlights the flexibility of LyteNyte Grid and some of its key capabil
 
 ## Overview
 
-The stock screener demo highlights these key LyteNyte Grid features:
+The stock screener demo highlights the following key LyteNyte Grid features:
 
 - **Sorting Rows:** Click the arrow icons in a column header or open the [Sort Manager](https://www.1771technologies.com/docs/component-sort-manager)
   dialog to sort rows. You can apply multiple sorts simultaneously.
-- **Filtering:** The demo manages filtering through a floating row positioned below the header row. Quick filter expressions
-  are supported, and users may also expand a filter configuration popover for given columns. The filter
-  popover demonstrates LyteNyte Grid’s [Filter Tree](https://www.1771technologies.com/docs/component-filter-tree) feature.
+- **Filtering:** The demo implements filtering via a floating row below the header row.
+  Quick filter expressions are supported, and users may also expand a filter configuration
+  popover for given columns. The filter popover demonstrates LyteNyte Grid’s
+  [Filter Tree](https://www.1771technologies.com/docs/component-filter-tree) feature.
 - **Quick Search:** Enter text into the input field to instantly locate matching rows in the grid
-  using LyteNyte Grid’s [Quick Search](https://www.1771technologies.com/docs/filter-quick-filter) feature.
+  using LyteNyte Grid’s [Quick Search](https://www.1771technologies.com/docs/filtering-quick-search) feature.
 - **Row Grouping and Aggregations:** Use the [Pill Manager](https://www.1771technologies.com/docs/component-grid-box) or the
   [Column Manager](https://www.1771technologies.com/docs/component-column-manager) to group rows and calculate aggregations.
   The demo shows the Column Manager in both a side panel and a dialog to highlight flexible layout options.
@@ -32,12 +33,12 @@ and context menus. This list isn’t exhaustive. Explore the code to inspire you
 >
 > - [Column Pivoting](https://www.1771technologies.com/docs/column-pivoting)
 > - [Server Data Loading](https://www.1771technologies.com/docs/server-data-loading-overview)
-> - [Tree Data](https://www.1771technologies.com/docs/row-tree-data-source)
+> - [Tree Data](https://www.1771technologies.com/docs/tree-source-overview)
 > - [Full Width Rows](https://www.1771technologies.com/docs/row-full-width)
 > - [Cell Editing](https://www.1771technologies.com/docs/cell-editing)
 > - [Row Dragging](https://www.1771technologies.com/docs/row-dragging)
 
-For details on all LyteNyte Grid features, see the [documentation](https://www.1771technologies.com/docs/intro-getting-started).
+For details on all LyteNyte Grid features, [click here](https://www.1771technologies.com/pricing?showFeatures=true#lytenyte-features).
 
 ## 🚀 Getting Started
 
